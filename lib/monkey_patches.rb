@@ -49,11 +49,11 @@ class Hash
   end
 
   def fzip(*hs)
-    Hash[
-      map do |k, v|
-        [k, [v, *hs.map { |h| h.fetch(k) }]]
-      end
-    ]
+    h = {}
+    each do |k, v|
+      h[k] = [v, *hs.map { |h| h.fetch(k) }]
+    end
+    h
   end
 end
 
