@@ -68,7 +68,7 @@ class Symbol
   # .map(&:slice.w_args(1, 3))
   # =>
   # .map { |x| x.slice(1, 3) }
-  def w_args(*args)
+  def with(*args)
     if block_given?
       ->(x, *xs) { x.__send__(self, *xs, *args) { |*zs| yield(*zs) } }
     else
